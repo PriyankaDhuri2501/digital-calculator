@@ -9,9 +9,7 @@
   padding: 20px;
   border-radius: 18px;
   background: linear-gradient(145deg, #f6e6ff, #e9c9ff);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.6s ease;
 }
 
@@ -20,7 +18,6 @@
   text-align: center;
   margin-bottom: 12px;
   font-weight: 600;
-  color: #2c2c2c;
 }
 
 /* ====== Display ====== */
@@ -30,19 +27,19 @@
   margin-bottom: 20px;
   padding: 0 14px;
   font-size: 26px;
-  font-weight: 500;
   text-align: right;
   border-radius: 12px;
   border: none;
   background: #1c1c1c;
-  color: #ffffff;
+  color: #fff;
+  letter-spacing: 1px;
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ====== Buttons Grid ====== */
 .calc-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 3fr 3fr 3fr 2.2fr;
   gap: 12px;
 }
 
@@ -50,71 +47,66 @@
 .calc-buttons button {
   height: 56px;
   font-size: 18px;
-  font-weight: 500;
   border-radius: 14px;
   border: none;
-  background: #ffffff;
-  color: #333;
   cursor: pointer;
-  box-shadow:
-    0 6px 14px rgba(0, 0, 0, 0.15),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* ====== Button Hover ====== */
 .calc-buttons button:hover {
   background-color: #f2f2f2;
 }
 
-/* ====== Button Press Animation ====== */
 .calc-buttons button:active {
   transform: scale(0.94);
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* ====== Operator Buttons ====== */
-.calc-buttons button:nth-child(-n+4),
-.calc-buttons button:nth-child(8) {
+/* ====== Button Types ====== */
+.operator {
   background: #ffd966;
+  font-weight: 600;
 }
 
-.calc-buttons button:nth-child(-n+4):hover,
-.calc-buttons button:nth-child(8):hover {
+.operator:hover {
   background: #ffcd38;
 }
 
-/* ====== Clear Button ====== */
-.calc-buttons button:first-child {
-  background: #ff6b6b;
-  color: white;
+.bracket {
+  background: #e0e0ff;
+  font-weight: 600;
 }
 
-.calc-buttons button:first-child:hover {
+.bracket:hover {
+  background: #c5c5ff;
+}
+
+.clear {
+  background: #ff6b6b;
+  color: #000; 
+  font-weight: 600;
+}
+
+.clear:hover {
   background: #ff4c4c;
 }
 
-/* ====== Equals Button ====== */
 .equals {
   background: linear-gradient(145deg, #4caf50, #3f9142);
-  color: white;
+  color: #000;
+  grid-row: span 2;
 }
 
 .equals:hover {
   background: linear-gradient(145deg, #43a047, #388e3c);
 }
 
-/* ====== Zero Button ====== */
 .zero {
   grid-column: span 2;
 }
 
-/* ====== Entry Animation ====== */
+/* ====== Animation ====== */
 @keyframes fadeIn {
   from {
     opacity: 0;
