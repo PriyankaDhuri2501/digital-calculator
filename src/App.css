@@ -1,95 +1,127 @@
-App {
+/* ====== Global Reset ====== */
+* {
+  box-sizing: border-box;
+}
+
+/* ====== Calculator Container ====== */
+.counter-container {
+  width: 340px;
+  padding: 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #f6e6ff, #e9c9ff);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  animation: fadeIn 0.6s ease;
+}
+
+/* ====== Heading ====== */
+.counter-container h3 {
   text-align: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #2c2c2c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ====== Display ====== */
+.calc-display {
+  width: 100%;
+  height: 64px;
+  margin-bottom: 20px;
+  padding: 0 14px;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: right;
+  border-radius: 12px;
+  border: none;
+  background: #1c1c1c;
+  color: #ffffff;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ====== Buttons Grid ====== */
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* ====== Buttons ====== */
+.calc-buttons button {
+  height: 56px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 14px;
+  border: none;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* ====== Button Hover ====== */
+.calc-buttons button:hover {
+  background-color: #f2f2f2;
+}
+
+/* ====== Button Press Animation ====== */
+.calc-buttons button:active {
+  transform: scale(0.94);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ====== Operator Buttons ====== */
+.calc-buttons button:nth-child(-n+4),
+.calc-buttons button:nth-child(8) {
+  background: #ffd966;
+}
+
+.calc-buttons button:nth-child(-n+4):hover,
+.calc-buttons button:nth-child(8):hover {
+  background: #ffcd38;
+}
+
+/* ====== Clear Button ====== */
+.calc-buttons button:first-child {
+  background: #ff6b6b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.calc-buttons button:first-child:hover {
+  background: #ff4c4c;
 }
 
-@keyframes App-logo-spin {
+/* ====== Equals Button ====== */
+.equals {
+  background: linear-gradient(145deg, #4caf50, #3f9142);
+  color: white;
+}
+
+.equals:hover {
+  background: linear-gradient(145deg, #43a047, #388e3c);
+}
+
+/* ====== Zero Button ====== */
+.zero {
+  grid-column: span 2;
+}
+
+/* ====== Entry Animation ====== */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
-}
-.counter-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 350px;
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #070707;
-  border-radius: 5px;
-  background-color: #f0cdfa;
-}
-
-
-.input {
-  width: 60px;
-  text-align: center;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.buttons {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  
-  
-}
-
-.buttons button {
-  width: 150px; /* Set the width of the button */
-  height: 50px; /* Set the height of the button */
-  padding: 0; /* Remove padding to ensure consistent size */
-  border: 1px solid #060606;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 10px; /* Adjust margin as needed */
-  font-size: 20px;
-  background-color: aquamarine;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; 
-  
-}
-
-.buttons button:hover {
-  background-color: #7fffd4; 
-  color: #ffffff; 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.buttons button:last-child {
-  margin-right: 0;
 }
